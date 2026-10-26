@@ -1,0 +1,12 @@
+# ONLY a tiny runnable smoke test, NOT TSAI production sizes.
+# All numeric choices below are local tiny-harness test inputs, not imported V4 values.
+seed: 1234  # source: G5 Gate 1 reproducibility requirement
+vocab_size: 32  # source: synthetic tiny-token harness, tested locally
+hidden_size: 32  # source: synthetic tiny-token harness, tested locally
+num_heads: 4  # source: local tiny-run compatibility: hidden_size divisible by heads
+num_layers: 1  # source: local tiny-run speed envelope
+num_experts: 2  # source: local tiny-run MoE demonstrator
+seq_len: 12  # source: local tiny-run speed envelope
+batch_size: 8  # source: local tiny-run speed envelope
+steps: 20  # source: local smoke test, sufficient to observe early convergence
+lr: 0.003  # source: local tiny-run test hypothesis; not production LR
