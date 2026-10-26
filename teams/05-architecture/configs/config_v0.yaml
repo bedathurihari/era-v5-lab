@@ -1,0 +1,30 @@
+# G5 architecture PROPOSAL; production sizes intentionally unresolved until TSAI 31 Oct.
+# Every value has a source (or an explicit pending dependency).
+version: 0  # source: G5 Week 1 Gate 1 brief
+seed: 1234  # source: G5 Gate 1 requirement
+architecture:
+  family: decoder_moe  # source: G5 Week 1 tiny MoE brief
+  embedding_family: kronecker_byte  # source: theschoolofai/kronecker-embeddings README, canonical codec
+  kronecker_mode: dynamic  # source: theschoolofai/kronecker-embeddings README, operational modes
+  kronecker_pos_dim: null  # source: arXiv:2605.29459, experiment dependent; TSAI to decide production size
+  ke2_output_shape: null  # source: G4 pending interface handoff 27 Oct
+  vocab_size: null  # source: TSAI size decision due 31 Oct
+  hidden_size: null  # source: TSAI size decision due 31 Oct
+  num_layers: null  # source: TSAI size decision due 31 Oct
+  num_heads: null  # source: TSAI size decision due 31 Oct
+  num_experts: null  # source: TSAI size decision due 31 Oct
+  top_k: null  # source: G5 architecture experiment, not yet approved
+  max_context: null  # source: TSAI size decision due 31 Oct
+training:
+  optimizer: adamw  # source: measured tiny-run baseline; provisional, experiment required
+  learning_rate: null  # source: G5 LR sweep pending; no V4 LR carried over
+  batch_size: null  # source: G5 hardware measurements pending; avoid tiny numbers in production config
+  steps: null  # source: TSAI training schedule pending
+  deterministic: true  # source: G5 seed-1234 exact-repeat Gate 1
+observability:
+  tokens_per_second: tokens_per_second  # source: G8 provisional 27 Oct six-field interface
+  loss_ntp: loss_ntp  # source: G8 provisional 27 Oct six-field interface
+  loss_mtp: loss_mtp  # source: G8 provisional 27 Oct six-field interface
+  loss: loss  # source: G8 provisional 27 Oct six-field interface
+  lr: lr  # source: G8 provisional 27 Oct six-field interface
+  gpu_alloc_gb: gpu_alloc_gb  # source: G8 provisional 27 Oct six-field interface
